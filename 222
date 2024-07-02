@@ -1,0 +1,47 @@
+void main() {
+  var menuItems = [
+    MenuItem('ต้มยำกุ้ง', '150', 'อาหารคาว'),
+    MenuItem('แกงเขียวหวาน', '120', 'อาหารคาว'),
+    MenuItem('ขนมไทย', '50', 'อาหารหวาน'),
+    MenuItem('บัวลอย', '60', 'อาหารหวาน'),
+    MenuItem('ชาไทย', '40', 'เครื่องดื่ม'),
+    MenuItem('กาแฟ', '50', 'เครื่องดื่ม')
+  ];
+  var categorizedMenu = categorizeMenu(menuItems);
+  categorizedMenu.forEach((category, items) {
+    print('$category:');
+    for (var item in items) {
+      print('- ${item.name}: ${item.price} บาท');
+    }
+  });
+}
+Map<String, List<MenuItem>> categorizeMenu(List<MenuItem> menuItems) {
+  var categories = <String, List<MenuItem>>{};
+
+  for (var item in menuItems) {
+    if (!categories.containsKey(item.category)) {
+      categories[item.category] = [];
+    }
+    categories[item.category]!.add(item);
+  }
+  return categories;
+}
+
+class MenuItem {
+  String name;
+  String price;
+  String category;
+
+  MenuItem(this.name, this.price, this.category);
+}
+
+
+class Oreder{
+  
+  
+}
+
+class Restaurant{
+  
+  
+}
